@@ -85,9 +85,12 @@ def predictImage(image):
 if __name__ == "__main__":
     main()
     generateModel("model.sav")
-if __name__ == __file__.split('\\')[-1].split('.')[0]:
+# if __name__ == __file__.split('\\')[-1].split('.')[0]:
+else:
     if os.path.exists("model.sav"):
+        print("Model Found")
         loadModel("model.sav")
     else:
+        print("No Model Found Running main")
         main()
         generateModel("model.sav")
