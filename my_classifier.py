@@ -1,6 +1,7 @@
 import ssl,time,os
 import pandas as pd
 import numpy as np
+import pickle
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
@@ -55,7 +56,12 @@ def main():
     accuracy = accuracy_score(Yts,Yprediction)
     print(f"Accuracy : {round(accuracy*100,2)}%")
 
-
+def generateModel(filename):
+    pickle.dump(LR, open(filename, 'wb'))
+    print(f"Model Dumped to {filename}")
+def loadModel(filename):
+    LR =pickle.load(open(filename, 'rb'))
+    print(f"Model Loaded from {filename}")
 def predictImage(image):
     opened_image = Image.open(image)
     #greying it
@@ -78,3 +84,10 @@ def predictImage(image):
 
 if __name__ == "__main__":
     main()
+    generateModel("model.sav")
+if __name__ == __file__.split('\\')[-1].split('.')[0]:
+    if os.path.exists("model.sav"):
+        loadModel("model.sav")
+    else:
+        main()
+        generateModel("model.sav")
