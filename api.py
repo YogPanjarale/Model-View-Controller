@@ -1,6 +1,5 @@
 from flask import Flask,jsonify,request
-from classifier import predictImage
-
+from my_classifier import predictImage
 app = Flask(__name__)
 
 @app.route("/predict-image",methods = ["POST"])
