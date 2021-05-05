@@ -41,8 +41,10 @@ XtsScale = Xts/255.00
 print("--- Took %s seconds ---" % (time.time() - tsstart))
 
 print("Traning the Model...")
+trstart = time.time()
 #Logistics regression
 LR = LogisticRegression(solver= 'saga',multi_class = 'multinomial').fit(XtrScale,Ytr)
+print("--- Took %s seconds ---" % (time.time() - trstart))
 
 '''
 Checking the accuracy
@@ -70,5 +72,5 @@ def predictImage(image):
     #sampling
     test_sample = np.array(inverted_image).reshape(1,784)
 
-    test_predict =LR.predit(test_sample)
+    test_predict =LR.predict(test_sample)
     return test_predict[0]
