@@ -1,12 +1,12 @@
 from flask import Flask,jsonify,request
-from my_classifier2 import predictImage
+from classifier import predictImage
 import socket
 app = Flask(__name__)
 
 @app.route("/predict-image",methods = ["POST"])
 def predict():
-    image_data = request.files.get("digit")
-    print(request)
+    image_data = request.files.get("alphabet")
+    print(request.files)
     result = predictImage(image_data)
     print(result)
     return jsonify({

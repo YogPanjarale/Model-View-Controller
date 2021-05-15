@@ -1,9 +1,9 @@
-# Class 125 - Model View Controller
+# Project 125 - Model View Controller
 
-- digit recognition image classifier over flask api
+- Alphabet-recognition image classifier over flask api
 upload image to api and get predictions
 
-## Accuracy ~91%
+## Accuracy ~94.4%
 
 ### How to run
 
@@ -12,4 +12,4 @@ upload image to api and get predictions
 
 ### How to Test
 
-- Send `POST` request to `http://localhost:5000/predict-image` with body as multi-part form with key `digit` as a image file of the number you want to predict
+- Send `POST` request to `http://localhost:5000/predict-image` with body as multi-part form with key `alphabet` as a image file of the number you want to predict
